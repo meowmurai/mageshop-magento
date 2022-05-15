@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * @var FoTech\CustomModule\Block\WeatherIndex $block
+ */
+$hanoi = $block->getWeatherInfoIn('HaNoi');
+$tokyo = $block->getWeatherInfoIn('Tokyo');
+$london = $block->getWeatherInfoIn('London');
+$paris = $block->getWeatherInfoIn('Paris');
+$seoul = $block->getWeatherInfoIn('Seoul');
+
+$loca = $hanoi;
+$date = date("H:i  d-m-Y");
+
+// switch($loc) {
+//     case "hanoi":
+        
+//         break;
+//     case "tokyo":
+//         $loca = $tokyo;
+//         break;
+//     case "london":
+//         $loca = $london;
+//         break;
+//     case "paris":
+//         $loca = $paris;
+//         break;
+//     case "seoul":
+//         $loca = $seoul;
+//         break;
+// }
+if(isset($_GET['Hanoi'])) {
+    $loca = $hanoi;
+}
+elseif(isset($_GET['Tokyo'])) {
+    $loca = $tokyo;
+}
+elseif(isset($_GET['London'])) {
+    $loca = $london;
+}
+elseif(isset($_GET['Paris'])) {
+    $loca = $paris;
+}
+elseif(isset($_GET['Seoul'])) {
+    $loca = $seoul;
+}
+else {
+    $loca = $london;
+}
+//var_dump();
+?>
+<div class="weather-container container-fluid pb-5 mx-auto" style="padding-left: 0; padding-right: 0">
+    <div class="row d-flex justify-content-center" style="marin-left: 0; margin-right: 0">
+        <div class="row card0">
+            <div class="card1 col-lg-8 col-md-7">
+                <small>the.weather</small>
+                <div class="text-center">
+                    <img class="image mt-5" src="https://i.imgur.com/M8VyA2h.png">
+                </div>
+                <div class="row px-3 mt-3 mb-3 d-flex align-items-center">
+                    <h1 class="large-font mr-3"><?php echo " ${loca['temp']}" ?>&#176;</h1>
+                    <div class="d-flex flex-column mr-3">
+                        <h2 class="mt-3 mb-0"><?php echo " ${loca['name']}" ?></h2>
+                        <small><?php echo "${date}" ?></small>
+                    </div>
+                    <div class="d-flex flex-column text-center">
+                        <h3 class="fa fa-sun-o mt-4"></h3>
+                        <small><?php echo "${loca['main']}" ?></small>
+                    </div>
+                </div>
+            </div>
+            <div class="card2 col-lg-4 col-md-5">
+                <div class="mr-5 mt-5">
+                    <form method="get" action="#">
+                        <input type="submit" class="selectable light-text suggestion" name="Hanoi" value="Hanoi"/>
+                        <input type="submit" class="selectable light-text suggestion" name="Tokyo" value="Tokyo"/>
+                        <input type="submit" class="selectable light-text suggestion" name="London" value="London"/>
+                        <input type="submit" class="selectable light-text suggestion" name="Paris" value="Paris"/>
+                    </form>
+                    <!-- <p class="selectable light-text suggestion">Hà nội</p>
+                    <p class="selectable light-text suggestion">Tokyo</p>
+                    <p class="selectable light-text suggestion">London</p>
+                    <p class="selectable light-text suggestion">Paris</p>
+                    <p class="selectable light-text suggestion">Seoul</p> -->
+
+                    <div class="line my-5"></div>
+
+                    <p>Weather Details</p>
+                    <div class="row px-3">
+                        <p class="light-text">Cloudy</p>
+                        <p class="ml-auto"><?php echo " ${hanoi['clouds']}%" ?></p>
+                    </div>
+                    <div class="row px-3">
+                        <p class="light-text">Humidity</p>
+                        <p class="ml-auto"><?php echo " ${hanoi['humidity']}%" ?></p>
+                    </div>
+                    <div class="row px-3">
+                        <p class="light-text">Wind</p>
+                        <p class="ml-auto"><?php echo " ${hanoi['wind']}m/s" ?></p>
+                    </div>
+                    <div class="row px-3">
+                        <p class="light-text">Rain</p>
+                        <p class="ml-auto">0mm</p>
+                    </div>
+
+                    <div class="line mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

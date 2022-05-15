@@ -1,0 +1,118 @@
+/* body {
+    color: #fff !important;
+    overflow-x: hidden !important;
+    height: 100% !important;
+    background-image: linear-gradient(#81D4FA, #2196F3) !important;
+    background-repeat: no-repeat !important;
+} */
+.weather-container {
+    color: #fff !important;
+    overflow-x: hidden !important;
+    height: 100% !important;
+    font-size: 16px !important;
+    /* background-image: linear-gradient(#81D4FA, #2196F3) !important;
+    background-repeat: no-repeat !important; */
+}
+.selectable {
+    all: unset;
+    display: block;
+    margin-bottom: 1rem;
+}
+h2 {
+    margin-top: 16px !important;
+    font-size: 22px !important;
+    font-weight: 500 !important;
+}
+small {
+    font-size: 80% !important;
+}
+.card0 {
+    width: 100% !important;
+    /* width: 94% !important; */
+}
+
+.card1 {
+    background-image: linear-gradient(#2196F3, #81D4FA) !important;
+    padding: 30px 20px 30px 50px !important;
+}
+
+.image {
+    width: 300px !important;
+    height: 300px !important;
+}
+
+.large-font {
+    font-size: 70px !important;
+    font-family: Arial !important;
+}
+
+.fa-sun-o {
+    font-size: 22px !important;
+}
+
+.card2 {
+    background-color: #607D8B !important;
+    padding: 0px 0px 40px 40px !important;
+}
+
+.weather-input {
+    background-color: #607D8B  !important;
+    padding: 24px 0px 12px 0px !important;
+    width: 80% !important;
+    box-sizing: border-box !important;
+    border: none !important;
+    border-bottom: 1px solid #CFD8DC !important;
+    font-size: 16px !important;
+    color: #fff !important;
+}
+
+.weather-input:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #fff !important;
+    outline-width: 0 !important;
+    font-weight: 400 !important;
+}
+
+::placeholder {
+    color: #B0BEC5 !important;
+    opacity: 1 !important;
+}
+
+:-ms-input-placeholder {
+    color: #B0BEC5 !important;
+}
+
+::-ms-input-placeholder {
+    color: #B0BEC5 !important;
+}
+
+.fa-search {
+    color: #607D8B !important;
+    background-color: #E1F5FE !important;
+    font-size: 20px !important;
+    padding: 20px !important;
+    width: 20% !important;
+    cursor: pointer !important;
+}
+
+.light-text {
+    color: #B0BEC5 !important;
+}
+
+.suggestion:hover {
+    color: #fff !important;
+    cursor: pointer !important;
+}
+
+.line {
+    height: 1px !important;
+    background-color: #B0BEC5 !important;
+}
+
+@media screen and (max-width: 500px) {
+    .card1 {
+        padding-left: 26px !important;
+    }
+}

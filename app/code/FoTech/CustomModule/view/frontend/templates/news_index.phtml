@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @var FoTech\CustomModule\Block\NewsIndex $block
+ */
+$news = $block->getNews()['channel']['item'];
+//$n = $block->getCurrencyExchangeRate()['Exrate'];
+?>
+
+<h1 class="module-title py-3">Bản tin kinh doanh</h1>
+
+<?php foreach($news as $new): 
+    $new['text'] = strip_tags($new['description']);
+    // $new['image'] = str_get_html($new['description'])->find("img", 0)->outertext;
+    preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $new['description'], $match);
+?>
+    <div id="featured" class="carousel slide carousel-fade mb-4" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card bg-dark text-white"> <img class="card-img img-fluid" src=<?php echo $match[0][1]?> alt="">
+                            <div class="card-img-overlay d-flex linkfeat"> 
+                                <a href=<?php echo $new['link']?> class="align-self-end news-link"> 
+                                    <span class="badge" style="font-size: 14px">Kinh Doanh</span>
+                                    <h4 class="card-title" style="font-size: 24px"><?php echo $new['title'] ?></h4>
+                                    <p style="font-size: 13px"><?php echo $new['pubDate'] ?></p>
+                                    <p class="textfeat" style="font-size: 16px">
+                                        <?php echo $new['text']?>
+                                    </p>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<?php endforeach ?>

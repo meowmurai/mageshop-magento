@@ -1,0 +1,405 @@
+::selection{
+    background-color: transparent;
+}
+.container{
+    /*width: 100vw;*/
+    /*height: 100vh;*/
+}
+.card-wrapper{
+    position: relative;
+    margin: auto;
+    overflow: visible;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+.card,
+.icon,
+.cloud-group,
+.sun-group,
+.rain-group{
+    position: relative;
+}
+.box-highlight{
+    padding: 8px 4px;
+    background-color: #3B444C;
+    background-color: rgba(255,255,255,.15);
+    text-shadow: 0 5px 5px rgb(25,35,45);
+}
+.card{
+    width: 200px;
+    padding: 16px;
+    margin-bottom: 60px;
+    text-align: center;
+    background-color: #222222;
+    box-sizing: border-box;
+    transition: all 500ms ease-out;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+.card:hover{
+    box-shadow: 0 0 20px 10px rgb(5,15,25);
+    z-index: 2;
+}
+.card:hover:not(span){
+    color: #FFAC33;
+}
+.card-header{
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgb(200,200,200);
+    margin: 0;
+    text-transform: capitalize;
+}
+.card-temp{
+    margin: 5px 0 10px 0;
+    font-size: 4em;
+    color: white;
+}
+.card-info{
+    padding-top: 8px;
+    border-top: 1px solid rgb(200,200,200);
+    margin: 10px 0 0 0;
+    font-size: 1.25em;
+
+}
+.card-temp::after{
+    content: "\00B0";
+}
+.icon{
+    margin-top: 50px;
+    display:flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.cloud-group{
+    width: 120px;
+    height: 106px;
+}
+.icon-cloud{
+    position: absolute;
+    background-color: white;
+    display: block;
+}
+.shadow-cloud-clip{
+    box-shadow: 2px -6px 0 rgb(25,35,45);
+}
+.cloud-base{
+    top: 27px;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    border-radius: 40px;
+    z-index: 1;
+}
+.cloud-circle{
+    top: 0;
+    left: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    z-index: 2;
+}
+.cloud-circle::after{
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 46px;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background-color: inherit;
+    box-shadow: 1px -6px 0 rgb(25,35,45);
+
+}
+.sun{
+    top: -12px;
+    left: 53px;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+}
+.sunshine,
+.sunshine::before,
+.sunshine::after{
+    position: absolute;
+    width: 18px;
+    height: 8px;
+    border-radius: 8px;
+}
+.sunshine{
+    top: 17px;
+    right: -17px;
+}
+.sunshine::before,
+.sunshine::after,
+.rain::before,
+.rain::after{
+    content: "";
+    background-color: inherit;
+}
+.sunshine::before{
+    top: -48px;
+    right: 45px;
+    transform: rotate(-90deg);
+}
+.sunshine::after{
+    top: -33px;
+    right: 11px;
+    transform: rotate(-45deg);
+}
+.rain{
+    left: 0;
+    bottom: -86px;
+    transform: rotate(-75deg);
+}
+.rain,
+.rain::before,
+.rain::after{
+    position: absolute;
+    width: 40px;
+    height: 8px;
+    border-radius: 8px;
+    box-shadow: 2px 0 0 4px rgb(25,35,45);
+    z-index: 2;
+}
+.rain::before{
+    left: 9px;
+    bottom: -35px
+}
+.rain::after{
+    right: -18px;
+    bottom: -69px
+}
+
+/*ANIMAÇÕES*/
+.anim-flip{
+    animation-name: flip;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.anim-flip-card-2{
+    animation-delay: 166ms;
+}
+.anim-flip-card-3{
+    animation-delay: 332ms;
+}
+.anim-flip-card-4{
+    animation-delay: 498ms;
+}
+.anim-flip-card-5{
+    animation-delay: 664ms;
+}
+.anim-flip-card-6{
+    animation-delay: 830ms;
+}
+.anim-flip-card-7{
+    animation-delay: 996ms;
+}
+
+@keyframes flip{
+    0%{
+        transform: rotateY(180deg);
+        filter: blur(10px);
+    }
+    100%{
+        transform: rotateY(0deg);
+        filter: blur(0);
+    }
+}
+
+main {
+    padding: 0 !important;
+}
+
+:root {
+	--sun-color: #ffe65c;
+	--sun-color-rgba: rgb(255, 230, 92);
+	--card-sunny: #ffa333;
+	--moon-night: #2f3475;
+	--moon: #ffe646;
+	--moon-wave: rgb(79,85, 148);
+	--snow-day: #1ec9ed;
+	--foreground-mountain: #82dff9;
+	--background-mountain: #00b4d8;
+}
+.grid {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.card--weather {
+	margin: 1rem 2rem;
+	width: 10rem;
+	height: 10rem;
+	border-radius: 0.5rem;
+	position: relative;
+	overflow: hidden;
+}
+.weather--indicator {
+	position: absolute;
+	font-size: 2.5rem;
+	color: white;
+	z-index: 2;
+	font-family: 'Montserrat Alternates', sans-serif;
+	bottom: 1.5rem;
+	left: 1.5rem;
+}
+
+.moon-indicator {
+	text-shadow: 1px 3px #182067; 
+}
+.sun-indicator {
+	text-shadow: 1px 3px #ff9406; 
+}
+.sunny-day {
+	background-color: var(--card-sunny);
+	box-shadow: 0 5px 10px var(--card-sunny);
+	animation: .3s ease-in-out sunny-hover--back both;
+}
+.card--weather.sunny-day:hover {
+	animation: .3s ease-in-out 0s sunny-hover both;
+}
+.card--weather.moon-night:hover {
+	animation: .3s ease-in-out 0s moon-hover both;
+}
+.card--weather.snow-day:hover {
+	animation: .3s ease-in-out 0s snow-hover both;
+}
+.sunny-day .sun {
+	width: 7rem;
+	height: 7rem;
+	border-radius: 100%;
+	position: absolute;
+	top: -4rem;
+	right: -2.8rem;
+	background-color: var(--sun-color);
+	animation: sun-rays 4s infinite;
+	box-shadow: 0 0 1rem rgba(255, 192, 98, 0.4),
+				0 0 0 2.8rem rgb(255, 198, 102),
+				0 0 0 3rem rgb(255, 175, 73),
+				0 0 0 4.8rem rgb(255, 177, 77);
+}
+
+.moon-night {
+	background-color: var(--moon-night);
+	box-shadow: 0 5px 10px var(--moon-night);
+	animation: .3s ease-in-out moon-hover--back both;
+}
+
+.snow-day {
+	background-color: var(--snow-day);
+	box-shadow: 0 5px 10px var(--snow-day);
+	animation: .3s ease-in-out snow-hover--back both;
+}
+
+.foreground-mountain {
+	background-color: var(--foreground-mountain);
+	width: 34rem;
+	height: 10rem;
+	border-radius: 100%;
+	position: absolute;
+	bottom: -6.6rem;
+	left: 1rem;
+	box-shadow: 0 0 2rem #1ec9ed;
+}
+.background-mountain {
+	background-color: var(--background-mountain);
+	width: 24rem;
+	height: 10rem;
+	border-radius: 100%;
+	position: absolute;
+	top: 5rem;
+	left: -17rem;
+	box-shadow: 0 0 2rem #1ec9ed;
+}
+
+.moon-night .moon {
+	width: 2.5rem;
+	height: 2.5rem;
+	background-color: var(--moon);
+	border-radius: 100%;
+	position: absolute;
+	top: 2rem;
+	right: 1.5rem;
+	animation: moon-rays 4s infinite;
+	box-shadow: 0 0 1rem rgb(79,85, 148),
+				0 0 0 1.5rem rgb(79,85, 148),
+				0 0 3rem rgb(79,85,148),
+				0 0 0 3.5rem rgb(65,73, 137),
+				0 0 5rem rgb(44,52, 114);
+}
+
+@keyframes snow-hover {
+	0% 	 { box-shadow: 0 5px 10px var(--snow-day); }
+	100% { box-shadow: 0 10px 20px var(--snow-day); }
+}
+
+@keyframes snow-hover--back {
+	0%   { box-shadow: 0 10px 20px var(--snow-day);}
+	100% { box-shadow: 0 5px 10px var(--snow-day);}
+}
+
+@keyframes moon-hover {
+	0% 	 { box-shadow: 0 5px 10px var(--moon-night); }
+	100% { box-shadow: 0 10px 20px var(--moon-night); }
+}
+
+@keyframes moon-hover--back {
+	0%   { box-shadow: 0 10px 20px var(--moon-night);}
+	100% { box-shadow: 0 5px 10px var(--moon-night);}
+}
+
+@keyframes sunny-hover {
+	0% 	 { box-shadow: 0 5px 10px var(--card-sunny); }
+	100% { box-shadow: 0 10px 20px var(--card-sunny); }
+}
+
+@keyframes sunny-hover--back {
+	0%   { box-shadow: 0 10px 20px var(--card-sunny); }
+	100% { box-shadow: 0 5px 10px var(--card-sunny); }
+}
+
+@keyframes sun-rays {
+	0%   {box-shadow: 
+				0 0 1rem rgba(255, 192, 98, 0.4),
+				0 0 0 2.8rem rgb(255, 198, 102),
+				0 0 0 3rem rgb(255, 175, 73),
+				0 0 0 4.8rem rgb(255, 177, 77);}
+	50%  {box-shadow: 
+				0 0 .8rem rgba(255, 192, 98, 0.4),
+				0 0 0 2.2rem rgb(255, 198, 102),
+				0 0 0 2.8rem rgb(255, 175, 73),
+				0 0 0 4.4rem rgb(255, 177, 77);}
+	100% {box-shadow: 
+				0 0 1rem rgba(255, 192, 98, 0.4),
+				0 0 0 2.8rem rgb(255, 198, 102),
+				0 0 0 3rem rgb(255, 175, 73),
+				0 0 0 4.8rem rgb(255, 177, 77);}
+}
+
+@keyframes moon-rays {
+	0%   {box-shadow: 
+				0 0 1rem rgb(79,85, 148),
+				0 0 0 1.5rem rgb(79,85, 148),
+				0 0 3rem rgb(79,85,148),
+				0 0 0 3.5rem rgb(65,73, 137),
+				0 0 5rem rgb(44,52, 114);}
+	50%  {box-shadow: 
+				0 0 1rem rgb(79,85, 148),
+				0 0 0 1.8rem rgb(79,85, 148),
+				0 0 3rem rgb(79,85,148),
+				0 0 0 3.3rem rgb(65,73, 137),
+				0 0 5rem rgb(44,52, 114);}
+	100% {box-shadow: 
+				0 0 1rem rgb(79,85, 148),
+				0 0 0 1.5rem rgb(79,85, 148),
+				0 0 3rem rgb(79,85,148),
+				0 0 0 3.5rem rgb(65,73, 137),
+				0 0 5rem rgb(44,52, 114);}
+}

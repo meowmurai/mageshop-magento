@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Solwin Infotech. All rights reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!--add css on head block-->
+        <referenceContainer name="after.body.start">
+            <block class="Solwin\Cpanel\Block\Template" name="cpanel_custom_head" template="Solwin_Cpanel::head.phtml" before="-"/>
+        </referenceContainer>
+        <referenceBlock name="header.links">
+            <block class="FoTech\CustomModule\Block\Link" name="add-new-header-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Tin tức mới nhất</argument>
+                    <argument name="path" xsi:type="string" translate="true">custommodule/all</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body> 
+</page>

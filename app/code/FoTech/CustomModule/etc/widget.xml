@@ -1,0 +1,6 @@
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="FoTech\CustomModule\Block\WeatherIndex" id="fotech_widget_weather">
+        <label>Weather</label>
+        <description>Thêm weather widget</description>
+    </widget>
+</widgets>
